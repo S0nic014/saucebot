@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from saucebot.logger import Logger
 
 
+DISCORD_TOKKEN_VAR = 'DISCORD_TOKEN'
 COGS_DIR = pathlib.Path.cwd() / 'cogs'
 COMMAND_PREFIX = '?'
 
@@ -19,7 +20,6 @@ def list_cogs() -> list:
 
 def main():
     Logger.write_to_rotating_file('bot.log')
-    Logger.debug(pathlib.Path.cwd())
     try:
         bot = commands.Bot(COMMAND_PREFIX)
         # Load extensions
@@ -29,12 +29,15 @@ def main():
 
         # Start
         load_dotenv()
-        if not os.getenv('DISCORD_TOKEN'):
-            Logger.warning('Discord token missing. Add DISCORD_TOKEN=yourtoken to .env file (create if doesn\'t exist)')
+        if not os.getenv(DISCORD_TOKKEN_VAR):
+            Logger.warning('Discord token is missing. Add DISCORD_TOKEN=yourtoken to .env file. https://discord.com/developers/applications/')
+            input('Press any key to close...')
+            return
 
-        bot.run(os.getenv('DISCORD_TOKEN'))
+        bot.run(os.getenv(DISCORD_TOKKEN_VAR))
     except Exception:
         Logger.exception('Unhandled exception')
+        input()
 
 
 if __name__ == '__main__':

@@ -13,4 +13,10 @@ py -3 -m PyInstaller --onedir --console \
 -n $APP_NAME \
 $MAIN_FILE_PATH
 
+# Create empty .env file
+ENV_FILE="./dist/saucebot/.env"
+touch $ENV_FILE
+echo "DISCORD_TOKEN=" >> $ENV_FILE
+echo "NAO_KEY=" >> $ENV_FILE
+
 $SHELL 
