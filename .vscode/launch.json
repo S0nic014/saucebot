@@ -2,17 +2,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Bot (No UI)",
+            "name": "Bot",
             "type": "python",
             "request": "launch",
             "program": "./saucebot/bot.py",
-            "console": "internalConsole"
-        },
-        {
-            "name": "PySide UI",
-            "type": "python",
-            "request": "launch",
-            "program": "./saucebot/main.py",
             "console": "internalConsole"
         }
     ]
