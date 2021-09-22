@@ -36,7 +36,12 @@ class SauceCog(commands.Cog):
                 await msg.reply('No results found :c')
                 return
 
-            await msg.reply(f'Best simularity: {results[0].similarity}\nLink: {results[0].urls[-1]}')
+            # Attempt to find best result with link
+            results_with_links = [res for res in results if res.urls]
+            if results_with_links:
+                await msg.reply(f'Best similarity: {results_with_links[0].similarity}\nLink: {results_with_links[0].urls[0]}')
+            else:
+                await msg.reply(f'Best similarity: {results[0].similarity}\nTitle: {results[0].title}\nAuthor: {results[0].author}')
 
         except Exception:
             Logger.exception('Sauce exception')
