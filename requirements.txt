@@ -11,5 +11,5 @@ python-dotenv==0.19.0
 requests==2.23.0
 saucenao-api==2.4.0
 typing-extensions==3.10.0.2
-urllib3==1.26.5
+urllib3==1.25.11
 yarl==1.6.3
