@@ -15,7 +15,7 @@ class SauceCog(commands.Cog):
         super().__init__()
         load_dotenv()
         if not os.getenv(self.NAO_KEY_VAR):
-            Logger.warning('SauceNao API key missing. Add NAO=yourkey to .env file. Get one from https://saucenao.com/user.php?page=search-api')
+            Logger.error('SauceNao API key missing. Add NAO=yourkey to .env file. Get one from https://saucenao.com/user.php?page=search-api')
 
         self.nao = SauceNao(api_key=os.getenv(self.NAO_KEY_VAR))
         self.bot = bot
