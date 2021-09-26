@@ -1,7 +1,8 @@
  #!/bin/bash  
 APP_NAME="saucebot"
 MAIN_FILE_PATH=saucebot/bot.py
-SITE_PACKAGES_PATH=.venv/Lib/site-packages
+# Replace python version if not 3.9
+SITE_PACKAGES_PATH=.env/lib64/python3.9/site-packages
 COGS_DIR="./cogs;./cogs"
 ICON_PATH="./res/icon.ico"
 
